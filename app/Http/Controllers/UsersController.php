@@ -31,10 +31,11 @@ class UsersController extends Controller
             'role' => $request->role,
         ]);
 
-        return response()->json([
-            'message' => 'User created successfully',
-            'user' => $user
-        ], 201);
+        return redirect()->route('login')->with('message', 'Registration successful');
+        // return response()->json([
+        //     'message' => 'User created successfully',
+        //     'user' => $user
+        // ], 201);
     }
 
     public function delete($id)

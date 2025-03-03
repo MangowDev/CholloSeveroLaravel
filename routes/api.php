@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DealsController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
