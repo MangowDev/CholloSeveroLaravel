@@ -11,11 +11,11 @@
 <body>
     <div class="login-container">
         <div class="logo-container">
-            <img src="{{ asset('assets/images/Logo_Images/LogoNoBg.png') }}" alt="logo">
+            <img src="{{ asset('assets/images/logo_images/LogoNoBg.png') }}" alt="logo">
             <h1 class="form-title">Chollosevero</h1>
         </div>
         
-        <form action="{{ route('register') }}" method="POST">
+        <form action="{{ route('register.submit') }}" method="POST">
             @csrf
             <h4 class="login-title">Register</h4>
 
@@ -23,7 +23,7 @@
                 <i class="fa-solid fa-user"></i>
                 <label for="username">Username:</label>
             </div>
-            <input type="text" id="username" name="username" value="{{ old('username') }}" required>
+            <input type="text" id="username" name="name" value="{{ old('name') }}" required>
             @error('username')
                 <p class="error-message">{{ $message }}</p>
             @enderror

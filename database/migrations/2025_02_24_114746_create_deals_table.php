@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string("shop", 50);
             $table->string("url", 300);
             $table->boolean("available");
-            $table->foreignId("users_id")->constrained('user')->onDelete('cascade');
+            $table->foreignId("user_id")->constrained('users')->onDelete('cascade');
         });
     }
 

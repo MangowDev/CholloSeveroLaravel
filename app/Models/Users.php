@@ -20,6 +20,10 @@ class Users extends Model
 
     public $timestamps = true;
 
+    protected $attributes = [
+        'role' => 'user',
+    ];
+
     protected $hidden = [
         'password',
     ];

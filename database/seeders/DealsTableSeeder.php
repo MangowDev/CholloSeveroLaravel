@@ -24,7 +24,7 @@ class DealsTableSeeder extends Seeder
             'url' => 'https://chollometro.com/witcher3',
             'shop' => 'Mediamarkt',
             'available' => true,
-            'users_id' => 1,
+            'user_id' => 1,
         ]);
 
         DB::table('deals')->insert([
@@ -38,7 +38,7 @@ class DealsTableSeeder extends Seeder
             'url' => 'https://chollometro.com/forza',
             'shop' => 'Amazon',
             'available' => true,
-            'users_id' => 2,
+            'user_id' => 2,
         ]);
     }
 }

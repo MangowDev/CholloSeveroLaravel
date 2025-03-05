@@ -3,44 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Users; 
+use App\Models\User; // Modelo de Laravel
 
 class UsersController extends Controller
 {
-
+    /**
+     * Obtiene todos los usuarios con sus relaciones.
+     */
     public function get()
     {
-        $users = Users::with("deals")->get();
+        $users = User::with("deals")->get();
         return response()->json($users);
     }
 
-
+    /**
+     * Crea un nuevo usuario.
+     */
     public function create(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:30',
-            'password' => 'required|string|max:255',
-            'email' => 'required|email|max:60',
-            'role' => 'required|string|max:20',
+            'name' => 'required|string|max:30',
+            'email' => 'required|email|max:60|unique:users',
+            'password' => 'required|string|min:8|max:255',
+            // No es necesario validar el 'role' si lo asignamos por defecto
         ]);
 
-        $user = Users::create([
-            'username' => $request->username,
-            'password' => bcrypt($request->password),
+        // Asignamos 'role' a "user" si no se proporciona
+        $role = $request->role ?? 'user';
+
+        // Creamos el usuario
+        $user = User::create([
+            'name' => $request->name,
             'email' => $request->email,
-            'role' => $request->role,
+            'password' => bcrypt($request->password),
+            'role' => $role, // Asignamos el valor de 'role'
         ]);
 
-        return redirect()->route('login')->with('message', 'Registration successful');
-        // return response()->json([
-        //     'message' => 'User created successfully',
-        //     'user' => $user
-        // ], 201);
+        return redirect()->route('chollos')->with('message', 'Registration successful');
     }
 
+    /**
+     * Elimina un usuario por ID.
+     */
     public function delete($id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         if (!$user) {
             return response()->json([
@@ -55,9 +62,12 @@ class UsersController extends Controller
         ], 200);
     }
 
+    /**
+     * Actualiza un usuario existente.
+     */
     public function update(Request $request, $id)
     {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         if (!$user) {
             return response()->json([
@@ -66,13 +76,13 @@ class UsersController extends Controller
         }
 
         $request->validate([
-            'username' => 'required|string|max:30',
-            'email' => 'required|email|max:60',
+            'name' => 'required|string|max:30',
+            'email' => 'required|email|max:60|unique:users,email,' . $id,
             'role' => 'required|string|max:20',
         ]);
 
         $user->update([
-            'username' => $request->username,
+            'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,
         ]);
@@ -82,6 +92,4 @@ class UsersController extends Controller
             'user' => $user
         ], 200);
     }
-
-
 }

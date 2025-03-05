@@ -26,13 +26,13 @@ Route::get('/register', function () {
 })->name('register');
 
 // Rutas de autenticación
-Route::post('login', [AuthController::class, 'login']);
+Route::post('login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-// Ruta para el dashboard, protegida por el middleware de autenticación
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
+// Ruta para el chollos, protegida por el middleware de autenticación
+Route::get('chollos', function () {
+    return view('chollos');
+})->middleware('auth')->name('chollos');
 
 // Ruta para el registro de usuarios (POST)
-Route::post('/register', [UsersController::class, 'create']);
+Route::post('/register', [UsersController::class, 'create'])->name('register.submit');

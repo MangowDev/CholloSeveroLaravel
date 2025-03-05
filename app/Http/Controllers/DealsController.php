@@ -10,7 +10,7 @@ class DealsController extends Controller
 
     public function get()
     {
-        $deals = Deals::with("users")->get();
+        $deals = Deals::with("user")->get();
         return response()->json($deals);
     }
 
@@ -28,7 +28,7 @@ class DealsController extends Controller
             'shop' => 'required|string|max:50',
             'url' => 'required|string|max:300',
             'available' => 'required|boolean',
-            'users_id' => 'required|exists:user,id',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         $deal = Deals::create([
@@ -42,7 +42,7 @@ class DealsController extends Controller
             'shop' => $request->shop,
             'url' => $request->url,
             'available' => $request->available,
-            'users_id' => $request->users_id,
+            'user_id' => $request->user_id,
         ]);
 
         return response()->json([
