@@ -145,6 +145,17 @@ nav a{
   font-family: "Noto Sans", serif;
 }
 
+.logout-button{
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  font-family: "Noto Sans", serif;
+  background-color: transparent;
+  border: none;
+}
+
+
 nav div{
   display: flex;
   flex-direction: row;
@@ -152,7 +163,9 @@ nav div{
 }
 
 nav a:hover, 
-nav a:hover i {
+nav a:hover i,
+.logout-button:hover span,
+.logout-button:hover i {
   color: #00c8ff;
 }
 
@@ -285,6 +298,17 @@ div.deal-second-row{
   font-size: 20px;
   margin-left: 5px;
   color: #1E3A5F;
+}
+
+.deal-rating span{
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.deal-rating span span{
+  margin-left: 0;
+  font-weight: 600;
+  color: #1b98ff;
 }
 
 .deal-first-row{

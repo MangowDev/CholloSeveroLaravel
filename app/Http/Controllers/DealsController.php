@@ -14,6 +14,22 @@ class DealsController extends Controller
         return response()->json($deals);
     }
 
+    public function showDeals()
+    {
+        $deals = Deals::with('user')->get();
+
+        $username = auth()->check() ? auth()->user()->name : null;
+        $role = auth()->check() ? auth()->user()->role : null;
+
+        return view('chollos', compact('deals', 'username', 'role'));
+    }
+
+    public function myDeals()
+{
+    $deals = Deals::where('user_id', auth()->id())->get();
+    return view('misChollos', compact('deals'));
+}
+
 
     public function create(Request $request)
     {
@@ -28,9 +44,8 @@ class DealsController extends Controller
             'shop' => 'required|string|max:50',
             'url' => 'required|string|max:300',
             'available' => 'required|boolean',
-            'user_id' => 'required|exists:users,id',
         ]);
-
+    
         $deal = Deals::create([
             'title' => $request->title,
             'price' => $request->price,
@@ -42,15 +57,12 @@ class DealsController extends Controller
             'shop' => $request->shop,
             'url' => $request->url,
             'available' => $request->available,
-            'user_id' => $request->user_id,
+            'user_id' => auth()->id(),
         ]);
-
-        return response()->json([
-            'message' => 'Deal created successfully',
-            'deal' => $deal
-        ], 201);
+    
+        return redirect()->route('chollos')->with('message', 'Deal created successfully');
     }
-
+    
     public function delete($id)
     {
         $deal = Deals::find($id);
@@ -63,9 +75,8 @@ class DealsController extends Controller
 
         $deal->delete();
 
-        return response()->json([
-            'message' => 'Deal deleted successfully'
-        ], 200);
+        return redirect()->route('chollos')->with('message', 'Deal deleted succesfully');
+
     }
 
     public function update(Request $request, $id)

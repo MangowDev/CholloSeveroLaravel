@@ -292,6 +292,17 @@ div.deal-second-row{
   color: #1E3A5F;
 }
 
+.deal-rating span{
+  margin-left: 30px;
+  font-size: 20px;
+}
+
+.deal-rating span span{
+  margin-left: 0;
+  font-weight: 600;
+  color: #1b98ff;
+}
+
 .deal-first-row{
   width: 100%;
 }
