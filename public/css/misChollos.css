@@ -207,6 +207,10 @@ div.deal-second-row{
   margin-bottom: 15px;
 }
 
+.shop-col:first-of-type{
+  margin-right: 30px;
+}
+
 .shop-col span{
   color: #1b98ff;
   font-weight: 600;
@@ -254,11 +258,11 @@ div.deal-second-row{
 }
 
 .deal-title{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .deal-title h4{
-  font-size: 30px;
+  font-size: 35px;
   margin: 0;
   padding: 0;
 }
@@ -278,7 +282,7 @@ div.deal-second-row{
 }
 
 .deal-rating{
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .deal-rating i:first-of-type {

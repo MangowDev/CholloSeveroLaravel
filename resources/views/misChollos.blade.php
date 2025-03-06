@@ -90,22 +90,24 @@
                                     <i class="fa-solid fa-star-half"></i>
                                     @endif
                                     <span>Disponible:
-                                    @if ($deal->available === 1)
-                                    <span>Si</span>
-                                    @else
-                                    <span>No</span>
-                                    @endif
-                                </span>
+                                        @if ($deal->available === 1)
+                                        <span>Si</span>
+                                        @else
+                                        <span>No</span>
+                                        @endif
+                                    </span>
                             </div>
-                            <span class="shop-col">Shop: <span>{{ $deal->shop }}</span></span>
+                            <div class="col-12 d-flex flex-row align-items-center justify-content-start text-left deal-shop-col">
+                                <span class="shop-col">Shop: <span>{{ $deal->shop }}</span></span>
+                                <span class="shop-col">Categoria: <span>{{ $deal->category }}</span></span>
+                            </div>
                             <span>{{ $deal->description }}</span>
                         </div>
                         <div class="col-xl-2 col-lg-3 col-12 d-flex flex-column align-items-start justify-content-start text-left deal-edit-col">
-                            <form action="" method="POST">
-                                @csrf
-                                @method('PUT')
+                            <form action="{{ route('chollos.edit', $deal->id) }}">
                                 <button type="submit" class="edit-vertical-button">Edit</button>
                             </form>
+
                             <form action="{{ route('chollos.deleteDeal', $deal->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')

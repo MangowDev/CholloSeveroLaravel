@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\AuthController;
+use App\Models\Deals;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -18,7 +19,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Rutas para vistas de login y registro
 Route::get('/', function () {
     return view('login');
 })->name('login');
@@ -27,14 +27,11 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-// Rutas de autenticación
 Route::post('login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-// Ruta para el registro de usuarios (POST)
 Route::post('/register', [UsersController::class, 'create'])->name('register.submit');
 
-// Ruta para el chollos, protegida por el middleware de autenticación
 Route::get('/chollos', [DealsController::class, 'showDeals'])
     ->name('chollos');
 
@@ -45,6 +42,12 @@ Route::get('/chollos/create', function () {
     return view('create');
 })->middleware('auth')->name('chollos.create');
 
+Route::get('/chollos/edit/{id}', function ($id) {
+    $deal = Deals::findOrFail($id); 
+    return view('edit', compact('deal'));
+})->middleware('auth')->name('chollos.edit');
+
 
 Route::post('/chollos/createDeal', [DealsController::class, 'create'])->name('chollos.createDeal');
+Route::put('/chollos/editDeal/{id}', [DealsController::class, 'update'])->name('chollos.editDeal');
 Route::delete('/chollos/deleteDeal/{id}', [DealsController::class, 'delete'])->name('chollos.deleteDeal');

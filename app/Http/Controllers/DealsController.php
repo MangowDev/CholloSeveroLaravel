@@ -115,9 +115,7 @@ class DealsController extends Controller
             'available' => $request->available,
         ]);
 
-        return response()->json([
-            'message' => 'Deal updated successfully',
-            'deal' => $deal
-        ], 200);
+        return redirect()->route('chollos')->with('message', 'Deal edited succesfully');
+
     }
 }

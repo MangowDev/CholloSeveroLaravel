@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User; // Modelo de Laravel
+use App\Models\User;
 
 class UsersController extends Controller
 {
@@ -25,18 +25,15 @@ class UsersController extends Controller
             'name' => 'required|string|max:30',
             'email' => 'required|email|max:60|unique:users',
             'password' => 'required|string|min:8|max:255',
-            // No es necesario validar el 'role' si lo asignamos por defecto
         ]);
 
-        // Asignamos 'role' a "user" si no se proporciona
         $role = $request->role ?? 'user';
 
-        // Creamos el usuario
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'role' => $role, // Asignamos el valor de 'role'
+            'role' => $role, 
         ]);
 
         return redirect()->route('chollos')->with('message', 'Registration successful');

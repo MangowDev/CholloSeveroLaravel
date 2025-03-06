@@ -219,9 +219,25 @@ div.deal-second-row{
   font-size: 19px;
 }
 
+.shop-col span:first-of-type{
+  margin-bottom: 10px;
+}
+
 .shop-col span span{
   color: #1b98ff;
   font-weight: 600;
+}
+
+.shop-col a{
+  font-family: "Noto Sans", serif;
+  font-size: 19px;
+  text-decoration: none;
+  color: #1b98ff;
+  font-weight: 600;
+}
+
+.shop-col a:hover{
+  text-decoration: underline;
 }
 
 .deal-second-row{
@@ -251,7 +267,6 @@ div.deal-second-row{
   color: #1b98ff;
 }
 
-
 .deal-info-col{
   margin-left: 20px;
   padding-right: 10px;
@@ -262,7 +277,7 @@ div.deal-second-row{
 }
 
 .deal-title{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .deal-title h4{
@@ -286,7 +301,7 @@ div.deal-second-row{
 }
 
 .deal-rating{
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .deal-rating i:first-of-type {
@@ -301,7 +316,7 @@ div.deal-second-row{
 }
 
 .deal-rating span{
-  margin-left: 30px;
+  margin-left: 60px;
   font-size: 20px;
 }
 

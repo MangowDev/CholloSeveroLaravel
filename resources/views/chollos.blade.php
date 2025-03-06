@@ -112,15 +112,14 @@
                     </div>
                 </div>
                 <div class="d-flex flex-row align-items-between justify-content-between text-left deal-second-row">
-                    <div class="col-lg-3 d-flex flex-row align-items-start justify-content-start text-left shop-col">
-                        <span>Shop: <span>{{ $deal->shop }}</span></span>
+                    <div class="col-lg-4 d-flex flex-column align-items-start justify-content-start text-left shop-col">
+                        <span>Tienda: <span>{{ $deal->shop }}</span></span>
+                        <span>Categoria: <span>{{ $deal->category }}</span></span>
                     </div>
 
                     @if ($username === $deal->user->name || $role === 'admin')
-                    <div class="col-lg-6 d-flex flex-row align-items-center justify-content-center text-center shop-col">
-                        <form action="" method="POST">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $deal->id }}">
+                    <div class="col-lg-4 d-flex flex-row align-items-end justify-content-center text-center shop-col">
+                        <form action="{{ route('chollos.edit', $deal->id) }}">
                             <button type="submit" class="edit-button">Edit</button>
                         </form>
                         <form action="{{ route('chollos.deleteDeal', $deal->id) }}" method="POST">
@@ -133,8 +132,9 @@
                     </div>
                     @endif
 
-                    <div class="col-lg-3 d-flex flex-row align-items-end justify-content-end text-end shop-col">
+                    <div class="col-lg-4 d-flex flex-column align-items-end justify-content-end text-end shop-col">
                         <span>Usuario: <span>{{ $deal->user->name }}</span></span>
+                        <a href="{{$deal->url}}">Enlace al chollo</a>
                     </div>
                 </div>
             </div>
