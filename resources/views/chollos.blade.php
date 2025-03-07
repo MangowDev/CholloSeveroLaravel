@@ -26,12 +26,11 @@
             <i class="fa-solid fa-bars"></i>
             <select name="filters" id="lang">
                 <option value="default-option">Select filters here:</option>
-                <option value="javascript">JavaScript</option>
-                <option value="php">PHP</option>
-                <option value="java">Java</option>
-                <option value="python">Python</option>
-                <option value="C#">C#</option>
-                <option value="C++">C++</option>
+                <option value="gaming">Gaming</option>
+                <option value="programming">Programming</option>
+                <option value="technology">Technology</option>
+                <option value="clothes">Clothes</option>
+                <option value="digital-products">Digital products</option>
             </select>
         </div>
         <div class="col-lg-4 col-6 d-flex flex-row align-items-center justify-content-left text-left search-bar-div">

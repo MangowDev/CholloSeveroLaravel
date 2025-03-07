@@ -216,6 +216,22 @@ div.deal-second-row{
   font-weight: 600;
 }
 
+
+.deal-shop-col a{
+  font-family: "Noto Sans", serif;
+  font-size: 19px;
+  text-decoration: none;
+  color: #1b98ff;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-left: 30px;
+}
+
+.deal-shop-col a:hover{
+  text-decoration: underline;
+}
+
+
 .deal-second-row{
   width: 100%;
 }

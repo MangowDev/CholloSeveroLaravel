@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return Auth::check() ? redirect()->route('chollos') : view('login');
 })->name('login');
 
 Route::get('/register', function () {
