@@ -134,7 +134,37 @@
         </div>
     </form>
 </section>
-
+<footer class="container-fluid">
+    <div class="row justify-content-between footer-row gap-lg-0 gap-4">
+        <div
+            class="col-lg-4 col-12 d-flex flex-row align-items-center justify-content-lg-start justify-content-center text-lg-start text-center footer-col">
+            <h4>- © MangoDev - 2025 | mangodev03@gmail.com</h4>
+        </div>
+        <div
+            class="col-lg-4 col-12 d-flex flex-column align-items-center justify-content-center text-center footer-col">
+            <h4>
+                Made with
+                <a href="https://laravel.com/">Laravel</a>
+            </h4>
+        </div>
+        <div
+            class="col-lg-4 col-12 gap-3 d-flex flex-row align-items-center justify-content-lg-end justify-content-center footer-social-col">
+            <h4>My social:</h4>
+            <a href="https://x.com/Angelniwe33">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/angeel_rc3/">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/MangowDev">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://es.linkedin.com/in/%C3%A1ngel-robles-76784a313">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+</footer>
 <script src="https://kit.fontawesome.com/8b39d50696.js" crossorigin="anonymous"></script>
 
 </body>

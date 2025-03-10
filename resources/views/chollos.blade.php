@@ -99,9 +99,9 @@
                                 @if ($deal->rating - floor($deal->rating) > 0)
                                 <i class="fa-solid fa-star-half"></i>
                                 @endif
-                                <span>Disponible:
+                                <span>Availabiliy:
                                     @if ($deal->available === 1)
-                                    <span>Si</span>
+                                    <span>Yes</span>
                                     @else
                                     <span>No</span>
                                     @endif
@@ -112,8 +112,8 @@
                 </div>
                 <div class="d-flex flex-row align-items-between justify-content-between text-left deal-second-row">
                     <div class="col-lg-4 d-flex flex-column align-items-start justify-content-start text-left shop-col">
-                        <span>Tienda: <span>{{ $deal->shop }}</span></span>
-                        <span>Categoria: <span>{{ $deal->category }}</span></span>
+                        <span>Shop: <span>{{ $deal->shop }}</span></span>
+                        <span>Category: <span>{{ $deal->category }}</span></span>
                     </div>
 
                     @if ($username === $deal->user->name || $role === 'admin')
@@ -132,8 +132,8 @@
                     @endif
 
                     <div class="col-lg-4 d-flex flex-column align-items-end justify-content-end text-end shop-col">
-                        <span>Usuario: <span>{{ $deal->user->name }}</span></span>
-                        <a href="{{$deal->url}}">Enlace al chollo</a>
+                        <span>User: <span>{{ $deal->user->name }}</span></span>
+                        <a href="{{$deal->url}}">Link to the deal</a>
                     </div>
                 </div>
             </div>
@@ -142,6 +142,40 @@
             @endforelse
         </div>
     </section>
+    <footer class="container-fluid">
+      <div class="row justify-content-between footer-row gap-lg-0 gap-4">
+        <div
+          class="col-lg-4 col-12 d-flex flex-row align-items-center justify-content-lg-start justify-content-center text-lg-start text-center footer-col"
+        >
+          <h4>- © MangoDev - 2025 | mangodev03@gmail.com</h4>
+        </div>
+        <div
+          class="col-lg-4 col-12 d-flex flex-column align-items-center justify-content-center text-center footer-col"
+        >
+          <h4>
+            Made with
+            <a href="https://laravel.com/">Laravel</a>
+          </h4>
+        </div>
+        <div
+          class="col-lg-4 col-12 gap-3 d-flex flex-row align-items-center justify-content-lg-end justify-content-center footer-social-col"
+        >
+          <h4>My social:</h4>
+          <a href="https://x.com/Angelniwe33">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/angeel_rc3/">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com/MangowDev">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://es.linkedin.com/in/%C3%A1ngel-robles-76784a313">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const searchBar = document.getElementById("searchbar");
